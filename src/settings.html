@@ -15,8 +15,12 @@
       background: transparent;
     }
 
-    .text-validation {
-      margin-top: -15px;
+    #editor {
+      height: 450px;
+      border: 1px solid #DDD;
+      border-radius: 4px;
+      border-bottom-right-radius: 0px;
+      margin-top: 5px;
     }
   </style>
 
@@ -44,6 +48,7 @@
           <form role="form" name="settingsForm">
             <!-- TODO: content to come -->
           </form>
+          <div id="editor"></div>
         </div>
       </div>
     </div>
@@ -59,6 +64,10 @@
   <script src="components/bootstrap-select/bootstrap-select.js"></script>
   <script src="components/rv-bootstrap-formhelpers/dist/js/rv-bootstrap-formhelpers.js"></script>
 
+  <script src="components/rv-ace-build/src/ace.js"></script>
+  <script src="components/rv-ace-build/src/theme-solarized_light.js"></script>
+  <script src="components/rv-ace-build/src/mode-html.js"></script>
+
   <script src="config/config.js"></script>
   <script src="settings/settings-app.js"></script>
   <script src="components/widget-settings-ui-core/dist/widget-settings-ui-core.js"></script>
@@ -73,6 +82,13 @@
   <!-- endbuild -->
 
   <script src="//s3.amazonaws.com/rise-common/scripts/i18next/i18next.min.js"></script>
+
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/solarized_light");
+    editor.getSession().setUseWorker(false);
+    editor.getSession().setMode("ace/mode/html");
+  </script>
 
 </body>
 </html>
