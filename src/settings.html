@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Spreadsheet Settings</title>
+
+  <!-- build:css css/settings.min.css -->
+  <link rel="stylesheet" href="components/common-style/dist/css/rise.min.css">
+  <link rel="stylesheet" href="components/bootstrap-select/bootstrap-select.css">
+  <link rel="stylesheet" href="components/rv-bootstrap-formhelpers/dist/css/rv-bootstrap-formhelpers.css">
+  <!-- endbuild -->
+
+  <style type="text/css">
+    body, html {
+      background: transparent;
+    }
+
+    .text-validation {
+      margin-top: -15px;
+    }
+  </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+
+</head>
+<body ng-app="risevision.widget.html.settings" ng-controller="settingsController">
+  <div class="widget">
+    <div class="overlay"></div>
+    <div class="settings">
+      <div class="settings-center">
+        <div class="wrapper container modal-content" ng-controller="htmlSettingsController" ng-cloak>
+          <div class="modal-header">
+            <h2 id="settings-title"> {{"settings" | translate }}
+              <button id="settings-close" type="button" class="close" ng-click="closeSettings()">
+                <i class="fa fa-times"></i>
+              </button>
+            </h2>
+            <div class="sticky-wrapper">
+              <widget-button-toolbar
+                save="saveSettings()" cancel="closeSettings()" disable-save="settingsForm.$invalid"
+                contribute="https://github.com/Rise-Vision/widget-html"></widget-button-toolbar>
+            </div>
+          </div>
+          <form role="form" name="settingsForm">
+            <!-- TODO: content to come -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- build:js js/settings.min.js -->
+  <script src="components/angular-translate/angular-translate.js"></script>
+  <script src="components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+  <script src="components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+  <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="components/bootstrap-select/bootstrap-select.js"></script>
+  <script src="components/rv-bootstrap-formhelpers/dist/js/rv-bootstrap-formhelpers.js"></script>
+
+  <script src="config/config.js"></script>
+  <script src="settings/settings-app.js"></script>
+  <script src="components/widget-settings-ui-core/dist/widget-settings-ui-core.js"></script>
+  <script src="settings/ctr-html-settings.js"></script>
+
+  <script src="components/widget-settings-ui-components/dist/js/angular/widget-button-toolbar.js"></script>
+  <script src="components/widget-settings-ui-components/dist/js/angular/tooltip.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:e2egadgets -->
+  <script src="//rvashow2.appspot.com/gadgets/gadgets.min.js"></script>
+  <!-- endbuild -->
+
+  <script src="//s3.amazonaws.com/rise-common/scripts/i18next/i18next.min.js"></script>
+
+</body>
+</html>

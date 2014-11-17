@@ -1,0 +1,54 @@
+{
+  "name": "widget-html",
+  "version": "0.1.0",
+  "description": "Rise Vision HTML Widget",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp test",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rise-Vision/widget-html.git"
+  },
+  "author": "Rise Vision",
+  "license": "GPLv3",
+  "bucket": "widget-html",
+  "bugs": {
+    "url": "https://github.com/Rise-Vision/widget-html/issues"
+  },
+  "homepage": "https://github.com/Rise-Vision/widget-html",
+  "devDependencies": {
+    "chai-as-promised": "~4.1.1",
+    "event-stream": "^3.1.5",
+    "gulp": "~3.8.3",
+    "gulp-bump": "~0.1.8",
+    "gulp-concat": "^2.2.0",
+    "gulp-jsoncombine": "1.0.0",
+    "gulp-jshint": "~1.5.5",
+    "gulp-minify-css": "0.3.4",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-usemin": "0.3.7",
+    "run-sequence": "^0.3.2",
+    "gulp-sourcemaps": "^1.2.2",
+    "gulp-uglify": "^0.3.1",
+    "gulp-util": "~2.2.17",
+    "gulp-watch": "^0.6.8",
+    "jshint-stylish": "^0.2.0",
+    "karma": "~0.12.16",
+    "karma-chai": "^0.1.0",
+    "karma-chai-plugins": "^0.2.1",
+    "karma-coverage": "~0.2.4",
+    "karma-jasmine": "~0.1.5",
+    "karma-junit-reporter": "^0.2.2",
+    "karma-mocha": "~0.1.4",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-sinon-chai": "^0.2.0",
+    "mocha": "~1.20.1",
+    "phantomjs": "^1.9.7-9",
+    "protractor": "~1.0.0",
+    "sinon-chai": "^2.6.0",
+    "widget-tester": "git://github.com/Rise-Vision/widget-tester.git"
+  }
+}
