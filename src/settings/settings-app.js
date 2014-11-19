@@ -2,7 +2,8 @@ angular.module("risevision.widget.html.settings",
   ["risevision.widget.common",
     "risevision.widget.common.translate",
     "risevision.widget.common.widget-button-toolbar",
-    "risevision.widget.common.tooltip"]);
+    "risevision.widget.common.tooltip",
+    "ui.ace"]);
 
 angular.module("risevision.widget.common.translate", ["pascalprecht.translate"])
   .config(["$translateProvider", function ($translateProvider) {
