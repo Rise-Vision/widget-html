@@ -18,6 +18,19 @@
       browser.get("/src/settings-e2e.html");
     });
 
+    it("Should load all components", function () {
+      // spreadsheet controls component
+      expect(element(by.id("editor")).isPresent()).
+        to.eventually.be.true;
+
+    });
+
+    it("Save button should be enabled", function () {
+      // save button should be enabled
+      expect(element(by.css("button#save[disabled=disabled")).isPresent()).
+        to.eventually.be.false;
+    });
+
 
     xit("Should correctly save settings", function (done) {
       var settings = {

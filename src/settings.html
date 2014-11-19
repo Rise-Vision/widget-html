@@ -22,7 +22,6 @@
       border: 1px solid #DDD;
       border-radius: 4px;
       border-bottom-right-radius: 0px;
-      margin-top: 5px;
     }
 
   </style>
@@ -44,14 +43,11 @@
             </h2>
             <div class="sticky-wrapper">
               <widget-button-toolbar
-                save="saveSettings()" cancel="closeSettings()" disable-save="settingsForm.$invalid"
+                save="saveSettings()" cancel="closeSettings()"
                 contribute="https://github.com/Rise-Vision/widget-html"></widget-button-toolbar>
             </div>
           </div>
-          <form role="form" name="settingsForm">
-            <!-- TODO: content to come -->
-          </form>
-          <div ui-ace="{
+          <div id="editor" ace-holder ui-ace="{
             onLoad : aceLoaded,
             mode: 'html',
             theme: 'chrome'
@@ -75,6 +71,7 @@
   <script src="settings/settings-app.js"></script>
   <script src="components/widget-settings-ui-core/dist/widget-settings-ui-core.js"></script>
   <script src="settings/ctr-html-settings.js"></script>
+  <script src="settings/dtv-ace-holder.js"></script>
 
   <script src="components/widget-settings-ui-components/dist/js/angular/widget-button-toolbar.js"></script>
   <script src="components/widget-settings-ui-components/dist/js/angular/tooltip.js"></script>
