@@ -20,4 +20,8 @@ describe("HTML Settings", function () {
     expect(defaultSettings).to.be.an("object");
   });
 
+  it("should define htmlSettingsController", function (){
+    expect($scope.aceLoaded).to.be.a("function");
+  });
+
 });
