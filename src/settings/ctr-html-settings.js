@@ -1,8 +1,10 @@
 angular.module("risevision.widget.html.settings")
-  .controller("htmlSettingsController", ["$scope", "$log",
-    function ($scope, $log) {
+  .controller("htmlSettingsController", ["$scope", "$log", "$templateCache",
+    function ($scope, $log, $templateCache) {
 
       var initialLoad = true;
+
+      $scope.defaultHTML = $templateCache.get("html5.html");
 
       $scope.aceLoaded = function(_editor){
 
@@ -22,6 +24,8 @@ angular.module("risevision.widget.html.settings")
             // TODO: may or may not need this
             $log.info("editor change!");
           });
+
+          _session.setValue($scope.defaultHTML);
 
           initialLoad = false;
         }
