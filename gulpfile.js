@@ -20,6 +20,7 @@
   var rename = require("gulp-rename");
   var factory = require("widget-tester").gulpTaskFactory;
   var sourcemaps = require("gulp-sourcemaps");
+  var html2js = require("gulp-html2js");
 
   var appJSFiles = [
     "src/**/*.js",
@@ -65,7 +66,18 @@
       .pipe(jshint.reporter("fail"));
   });
 
-  gulp.task("source", ["lint"], function () {
+  gulp.task("html-templates", function() {
+    return gulp.src("./src/settings/html-templates/*.html")
+      .pipe(html2js({
+        outputModuleName: "risevision.widget.html.settings",
+        useStrict: true,
+        base: "./src/settings/html-templates"
+      }))
+      .pipe(rename({extname: ".js"}))
+      .pipe(gulp.dest("tmp/html-templates"));
+  });
+
+  gulp.task("source", ["html-templates", "lint"], function () {
     return gulp.src(['./src/settings.html', './src/widget.html'])
       .pipe(usemin({
         css: [sourcemaps.init(), minifyCSS(), sourcemaps.write()],
