@@ -16,12 +16,29 @@
     }
 
     .ace_editor {
+      /* Positioning */
       position: relative;
-      /* height is required */
-      height: 400px;
+
+      /* Display & Box Model */
+      height: 400px; /* height is required but also later gets dynamically calculated */
+
+      /* Visual */
       border: 1px solid #DDD;
       border-radius: 4px;
       border-bottom-right-radius: 0px;
+    }
+
+    .commands-list {
+      /* Display & Box Model */
+      max-width: 400px;
+      margin-top: -5px;
+
+      /* Visual */
+      font-size: 12px;
+    }
+
+    .commands-list span {
+      font-weight: bold;
     }
 
   </style>
@@ -47,10 +64,15 @@
                 contribute="https://github.com/Rise-Vision/widget-html"></widget-button-toolbar>
             </div>
           </div>
+          <ul class="list-inline commands-list bg-info">
+            <li><span>{{"legend.find" | translate}}:</span> Ctrl-F | Command-F</li>
+            <li><span>{{"legend.replace" | translate}}:</span> Ctrl-H | Command-Option-F</li>
+          </ul>
           <div id="editor" ng-model="settings.additionalParams.html" ace-holder ui-ace="{
             onLoad : aceLoaded,
             mode: 'html',
-            theme: 'chrome'
+            theme: 'chrome',
+            useWrapMode : true
           }"></div>
         </div>
       </div>
@@ -80,6 +102,7 @@
   <script src="components/ace-builds/src-noconflict/ace.js"></script>
   <script src="components/ace-builds/src-noconflict/mode-html.js"></script>
   <script src="components/ace-builds/src-noconflict/theme-chrome.js"></script>
+  <script src="components/ace-builds/src-noconflict/ext-searchbox.js"></script>
   <script src="components/angular-ui-ace/ui-ace.js"></script>
 
   <!-- endbuild -->
