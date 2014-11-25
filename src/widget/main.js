@@ -29,9 +29,6 @@
     gadgets.rpc.register("rscmd_stop_" + id, stop);
   }
 
-  // ensuring a transparent background immediately
-  document.body.style.background = "transparent";
-
 })(window, document, gadgets);
 
 
