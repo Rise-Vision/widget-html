@@ -143,7 +143,8 @@
 
   gulp.task("html:e2e",
     factory.htmlE2E({
-      files: ["./src/settings.html", "./src/widget.html"]
+      files: ["./src/settings.html", "./src/widget.html"],
+      e2eMockData: "../test/mock-data.js"
     }));
 
   gulp.task("test:unit:settings", factory.testUnitAngular(
@@ -175,9 +176,9 @@
     {testFiles: [
       "src/components/jquery/dist/jquery.js",
       "node_modules/widget-tester/mocks/gadget-mocks.js",
+      "test/mock-data.js",
       "src/config/test.js",
-      "src/components/widget-common/dist/common.js",
-      "src/config/test.js",
+      "src/widget/embedHTML.js",
       "src/widget/main.js",
       "test/unit/widget/**/*spec.js"]}
   ));
