@@ -31,12 +31,26 @@
         to.eventually.be.false;
     });
 
+    xit("Should apply default value in Ace editor", function () {
+      /* The default HTML that gets applied in the controller via the $watch on settings.additionalParams.html doesn't
+      get applied when running in these test scenarios. Not sure why.
+       */
+    });
 
-    xit("Should correctly save settings", function (done) {
-      var settings = {
-        params: {},
-        additionalParams:{}
-      };
+    it("Should correctly save settings", function (done) {
+      var testInput = "Hello World",
+        settings = {
+          params: {},
+          additionalParams:{
+            html: testInput
+          }
+        };
+
+      // add some text to the editor ( since default HTML doesn't get applied, see previous test above)
+      element(by.css("textarea.ace_text-input")).sendKeys(testInput);
+
+      // click save
+      element(by.id("save")).click();
 
       expect(browser.executeScript("return window.result")).to.eventually.deep.equal(
         {
