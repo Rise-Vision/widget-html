@@ -10,7 +10,19 @@ casper.test.begin("HTML Widget - e2e Testing", function (test) {
     }
   );
 
-  // TODO: more eventual tests
+  casper.then(function() {
+    casper.test.comment("iframe is present");
+
+    test.assertExists("#html-frame");
+  });
+
+  casper.withFrame(0, function() {
+    casper.test.comment("iframe is showing content")
+
+    this.test.assertSelectorExists(".test", "Should show div element");
+
+    this.test.assertSelectorHasText(".test", "Hello World!");
+  });
 
   casper.run(function() {
     test.done();
