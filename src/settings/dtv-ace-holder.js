@@ -6,11 +6,10 @@ angular.module("risevision.widget.html.settings")
         var $el = $(elem),
           $container = $($el.parent(".wrapper.container")),
           containerHeight = $container.height(),
-          headerHeight = $($container.find(".modal-header")).outerHeight(true),
-          commandsListHeight = $($container.find(".commands-list")).outerHeight(true);
+          headerHeight = $($container.find(".modal-header")).outerHeight(true);
 
         // update the height of the ace holder
-        $el.css("height", containerHeight - headerHeight - commandsListHeight);
+        $el.css("height", containerHeight - headerHeight);
       }
     };
   });

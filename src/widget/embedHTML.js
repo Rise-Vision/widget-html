@@ -68,6 +68,7 @@ RiseVision.EmbedHTML = (function (document, gadgets) {
   function _stop() {
     _removeHTML();
   }
+
   function _setParams(names, values) {
     var value;
 
@@ -79,7 +80,7 @@ RiseVision.EmbedHTML = (function (document, gadgets) {
 
         _configureFrame();
 
-        if (value.hasOwnProperty("html")) {
+        if (value && value.hasOwnProperty("html")) {
           _html = value.html;
         }
 
