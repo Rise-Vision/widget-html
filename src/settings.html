@@ -81,6 +81,17 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+  <!--
+  ** BUGFIX **
+  In order to prevent a character encoding issue with Ace Editor, the <script> tag that imports the Ace source requires
+  the charset attribute to be set with value "UTF-8". See here - http://goo.gl/e6w6mb
+
+  gulp-use-min node module in our build does not allow for applying attributes to generated <script> tags, thus
+  needing to manually apply it here so that in the generated settings.html in dist/, it appears above the
+  gulp-use-min generated declaration.
+  -->
+  <script src="js/settings.min.js" type="text/javascript" charset="UTF-8"></script>
+
   <!-- build:js js/settings.min.js -->
   <script src="components/angular-translate/angular-translate.js"></script>
   <script src="components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
