@@ -20,12 +20,6 @@ angular.module("risevision.widget.html.settings")
            */
           session.setUseWorker(false);
 
-          // Events
-          session.on("change", function(){
-            // TODO: may or may not need this
-            $log.info("editor change!");
-          });
-
           aceLoadComplete = true;
         }
 
