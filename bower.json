@@ -33,7 +33,6 @@
     "angular": "1.2.18",
     "angular-route": "1.2.18",
     "angular-ui-ace": "0.1.1",
-    "common-style": "https://github.com/Rise-Vision/common-style.git",
     "widget-common": "https://github.com/Rise-Vision/widget-common.git",
     "widget-settings-ui-components": "https://github.com/Rise-Vision/widget-settings-ui-components.git",
     "widget-settings-ui-core": "https://github.com/Rise-Vision/widget-settings-ui-core.git"

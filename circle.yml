@@ -1,0 +1,34 @@
+machine:
+  environment:
+    awscli: $HOME/aws/bin/aws
+dependencies:
+  cache_directories:
+    - /home/ubuntu/aws
+  pre:
+    - if [ -z "$BUCKET_NAME" ]; then echo Bucket name must be specified as an environment variable; exit 1; fi
+    - if [ -z $(grep version package.json |grep -o '[0-9.]*') ]; then echo Version must be specified in package.json; exit 1; fi
+    - if [[ ! -d $HOME/aws ]]; then curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && unzip awscli-bundle.zip && sudo ./awscli-bundle/install -i $HOME/aws; fi
+    - npm install -g gulp
+    - npm install -g casperjs
+  post:
+    - bower install
+    - wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
+    - nohup bash -c "java -jar selenium-server-standalone-2.44.0.jar &"
+test:
+  override:
+    - NODE_ENV=prod npm run test
+deployment:
+  staging:
+    branch: /(feature|fix|chore).*/
+    commands:
+      - NODE_ENV=test npm run build
+      - echo Deploying version $(grep version package.json |grep -o '[0-9.]*') to $BUCKET_NAME-test
+      - $awscli s3 ls s3://$BUCKET_NAME-test || ($awscli s3 mb s3://$BUCKET_NAME-test && $awscli s3api put-bucket-acl --bucket $BUCKET_NAME-test --grant-read 'uri="http://acs.amazonaws.com/groups/global/AllUsers"')
+      - $awscli s3 sync ./dist s3://$BUCKET_NAME-test/$(grep version package.json |grep -o '[0-9.]*')/dist --delete --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+  production:
+    branch: master
+    commands:
+      - NODE_ENV=prod npm run build
+      - echo Deploying version $(grep version package.json |grep -o '[0-9.]*') to $BUCKET_NAME
+      - $awscli s3 ls s3://$BUCKET_NAME || ($awscli s3 mb s3://$BUCKET_NAME && $awscli s3api put-bucket-acl --bucket $BUCKET_NAME --grant-read 'uri="http://acs.amazonaws.com/groups/global/AllUsers"')
+      - $awscli s3 sync ./dist s3://$BUCKET_NAME/$(grep version package.json |grep -o '[0-9.]*')/dist --delete --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
