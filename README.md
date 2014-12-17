@@ -1,4 +1,4 @@
-# HTML Widget [![Build Status](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-HTML-Master-Build/badge/icon)](http://devtools1.risevision.com:8080/view/Widgets%20and%20Components/job/Widget-HTML-Master-Build/)
+# HTML Widget [![Circle CI](https://circleci.com/gh/Rise-Vision/widget-html/tree/master.svg?style=svg)](https://circleci.com/gh/Rise-Vision/widget-html/tree/master)
 
 ## Introduction
 
