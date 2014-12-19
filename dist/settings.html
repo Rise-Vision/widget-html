@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Spreadsheet Settings</title>
+
+  <link rel="stylesheet" href="css/settings.min.css"/>
+
+  <style type="text/css">
+    body, html {
+      background: transparent;
+    }
+
+    .ace_editor {
+      /* Positioning */
+      position: relative;
+
+      /* Display & Box Model */
+      height: 400px; /* height is required but also later gets dynamically calculated */
+
+      /* Visual */
+      border: 1px solid #DDD;
+      border-radius: 4px;
+      border-bottom-right-radius: 0px;
+    }
+
+  </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+
+</head>
+<body ng-app="risevision.widget.html.settings" ng-controller="settingsController">
+  <div class="widget">
+    <div class="overlay"></div>
+    <div class="settings">
+      <div class="settings-center">
+        <div class="wrapper container modal-content" ng-controller="htmlSettingsController" ng-cloak>
+          <div class="modal-header">
+            <h2 id="settings-title"> {{"settings" | translate }}
+              <button id="settings-close" type="button" class="close" ng-click="closeSettings()">
+                <i class="fa fa-times"></i>
+              </button>
+            </h2>
+            <div class="sticky-wrapper">
+              <widget-button-toolbar
+                save="saveSettings()" cancel="closeSettings()"
+                contribute="https://github.com/Rise-Vision/widget-html"></widget-button-toolbar>
+            </div>
+          </div>
+          <div id="editor" ng-model="settings.additionalParams.html" ace-holder ui-ace="{
+            onLoad : aceLoaded,
+            mode: 'html',
+            theme: 'chrome',
+            useWrapMode : true
+          }"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!--
+  ** BUGFIX **
+  In order to prevent a character encoding issue with Ace Editor, the <script> tag that imports the Ace source requires
+  the charset attribute to be set with value "UTF-8". See here - http://goo.gl/e6w6mb
+
+  gulp-use-min node module in our build does not allow for applying attributes to generated <script> tags, thus
+  needing to manually apply it here so that in the generated settings.html in dist/, it appears above the
+  gulp-use-min generated declaration.
+  -->
+  <script src="js/settings.min.js" type="text/javascript" charset="UTF-8"></script>
+
+  <script src="js/settings.min.js"></script>
+
+  <!-- build:e2egadgets -->
+  <script src="//rvashow2.appspot.com/gadgets/gadgets.min.js"></script>
+  
+
+  <script src="//s3.amazonaws.com/rise-common/scripts/i18next/i18next.min.js"></script>
+
+</body>
+</html>

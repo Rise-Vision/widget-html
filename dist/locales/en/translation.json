@@ -1,0 +1,123 @@
+{
+  "settings": "HTML Settings",
+  "common": {
+    "buttons": {
+      "save": "Save",
+      "apply": "Apply",
+      "cancel": "Cancel",
+      "help": "Help",
+      "contribute": "Contribute"
+    },
+    "font-variants": {
+      "label": "Font Variants",
+      "bold": "Bold",
+      "italic": "Italic"
+    },
+    "units": {
+      "pixels": "px",
+      "seconds": "sec",
+      "minutes": "min"
+    }
+  },
+  "scroll": {
+    "heading": "Scroll",
+    "by": {
+      "label": "Type",
+      "none": "No",
+      "continuous": "Continuously",
+      "page": "By Page"
+    },
+    "speed": {
+      "label": "Speed",
+      "slowest": "Slowest",
+      "slow": "Slow",
+      "medium": "Medium",
+      "fast": "Fast",
+      "fastest": "Fastest"
+    },
+    "pause": {
+      "label": "Pause",
+      "tooltip": "Number of seconds to pause after touch or the end of the list is reached"
+    }
+  },
+  "table": {
+    "heading": "Table Format",
+    "row-padding": "Row Padding",
+    "col-padding": "Column Padding",
+    "row-color": "Row Color",
+    "alt-row-color": "Alternate Row Color",
+    "col-header-font": {
+      "heading": "Header Format",
+      "text": "Column Header Sample Text"
+    },
+    "data-font": {
+      "heading": "Data Format",
+      "text": "Data Sample Text"
+    }
+  },
+  "column": {
+    "heading": "Columns",
+    "select-title": "Select Columns To Format",
+    "alignment": {
+      "label": "Alignment",
+      "left": "Left",
+      "center": "Center",
+      "right": "Right"
+    },
+    "width": "Width",
+    "decimals": {
+      "label": "Decimals"
+    },
+    "sign": {
+      "label": "Sign",
+      "arrow": "Arrow",
+      "none": "None"
+    },
+    "color-condition": {
+      "label": "Color Condition",
+      "none": "None",
+      "change-up": "Change up green change down red",
+      "change-down": "Change down green change up red",
+      "value-positive": "Positive value green negative red",
+      "value-negative": "Positive value red negative green"
+    },
+    "date": {
+      "label": "Date Format",
+      "short": "Short",
+      "medium": "Medium",
+      "long": "Long"
+    },
+    "header-text": {
+      "label": "Header Text"
+    }
+  },
+  "url": {
+    "label": "URL",
+    "validate": {
+      "label": "Validate URL",
+      "tooltip": "Un-check \"Validate URL\" to bypass validation."
+    },
+    "invalid": "URL entered appears to be invalid."
+  },
+  "background": {
+    "heading": "Background",
+    "color": {
+      "label": "Color"
+    }
+  },
+  "video": {
+    "heading": "Video",
+    "autoplay": {
+      "label": "Auto Play"
+    },
+    "volume": {
+      "label": "Volume"
+    },
+    "loop": {
+      "label": "Loop"
+    },
+    "autohide": {
+      "label": "Auto Hide Controls"
+    }
+  }
+}
