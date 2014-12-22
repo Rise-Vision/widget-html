@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Widget</title>
+
+  <style type="text/css">
+
+    /* =========================================================================
+   CSS Reset
+   ========================================================================== */
+
+    /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+    /**
+     * 1. Set default font family to sans-serif.
+     * 2. Prevent iOS text size adjust after orientation change,
+     *    without disabling user zoom.
+     */
+
+    html {
+      /* Visual */
+      font-family: sans-serif; /* 1 */
+      -ms-text-size-adjust: 100%; /* 2 */
+      -webkit-text-size-adjust: 100%; /* 2 */
+    }
+
+    /**
+     * Remove default margin.
+     */
+    body {
+      /* Display & Box Model */
+      margin: 0;
+    }
+
+    /* =========================================================================
+   Custom Styling
+   ========================================================================== */
+
+    body {
+      /* Visual */
+      background-color: transparent;
+    }
+    #html-container {
+      /* Positioning */
+      position: relative;
+
+      /* Display & Box Model */
+      height: 0;
+      overflow: hidden;
+    }
+    #html-container iframe {
+      /* Positioning */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      /* Display & Box Model */
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="html-container">
+    <iframe id="html-frame"
+            frameborder="0"
+            allowTransparency="true"></iframe>
+  </div>
+
+  <!-- build:e2eMockData -->
+  
+
+  <!-- build:e2egadgets -->
+  <script src="//rvashow2.appspot.com/gadgets/gadgets.min.js"></script>
+  
+
+  <script src="js/widget.min.js"></script>
+</body>
+</html>

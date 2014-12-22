@@ -80,10 +80,22 @@
   gulp.task("source", ["html-templates", "lint"], function () {
     return gulp.src(['./src/settings.html', './src/widget.html'])
       .pipe(usemin({
-        css: [sourcemaps.init(), minifyCSS(), sourcemaps.write()],
+        css: [minifyCSS()],
         js: [sourcemaps.init(), uglify(), sourcemaps.write()]
       }))
       .pipe(gulp.dest("dist/"));
+  });
+
+  gulp.task("unminify", function () {
+    return gulp.src(['./src/settings.html', './src/widget.html'])
+      .pipe(usemin({
+        css: [rename(function (path) {
+          path.basename = path.basename.substring(0, path.basename.indexOf(".min"))
+        }), gulp.dest("dist")],
+        js: [rename(function (path) {
+          path.basename = path.basename.substring(0, path.basename.indexOf(".min"))
+        }), gulp.dest("dist")]
+      }))
   });
 
   gulp.task("fonts", function() {
@@ -138,7 +150,7 @@
   });
 
   gulp.task("build", function (cb) {
-    runSequence(["clean", "config"], ["source", "fonts", "images", "i18n"], cb);
+    runSequence(["clean", "config"], ["source", "fonts", "images", "i18n"], ["unminify"], cb);
   });
 
   gulp.task("html:e2e",
