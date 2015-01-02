@@ -38,6 +38,8 @@
     "widget-settings-ui-core": "https://github.com/Rise-Vision/widget-settings-ui-core.git"
   },
   "resolutions": {
-    "jquery": "1.11.0"
+    "jquery": "1.11.0",
+    "angular-translate": "~2.4.2",
+    "angular-translate-loader-static-files": "~2.4.2"
   }
 }
