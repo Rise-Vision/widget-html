@@ -16,7 +16,7 @@ dependencies:
     - nohup bash -c "java -jar selenium-server-standalone-2.44.0.jar &"
 test:
   override:
-    - NODE_ENV=prod npm run test
+    - NODE_ENV=dev npm run test
 deployment:
   staging:
     branch: /(feature|fix|chore).*/
