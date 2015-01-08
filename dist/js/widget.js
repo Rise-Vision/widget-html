@@ -6,6 +6,13 @@ if (typeof config === "undefined") {
   };
 }
 
+if (typeof angular !== "undefined") {
+  angular.module("risevision.common.i18n.config", [])
+    .constant("LOCALES_PREFIX",
+      "components/rv-common-i18n/dist/locales/translation_")
+    .constant("LOCALES_SUFIX", ".json");
+}
+
 /* global gadgets */
 
 var RiseVision = RiseVision || {};
