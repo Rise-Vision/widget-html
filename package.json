@@ -4,7 +4,7 @@
   "description": "Rise Vision HTML Widget",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "gulp test",
+    "test": "webdriver-manager update --standalone false --gecko false --versions.chrome 2.37; gulp test",
     "build": "gulp build"
   },
   "repository": {
