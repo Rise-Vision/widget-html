@@ -12,9 +12,8 @@ dependencies:
     - if [[ ! -d $HOME/aws ]]; then curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && unzip awscli-bundle.zip && sudo ./awscli-bundle/install -i $HOME/aws; fi
     - uname -a
     - sudo apt-get update
-    - sudo apt-get install python-dev
-    - sudo apt-get install libatk-bridge2.0-0
-    - sudo apt-get install libnss3
+    - sudo apt-get -f install
+    - sudo apt-get install python-dev libatk-bridge2.0-0 libnss3
     - sudo apt-get install libpango-1.0-0
     - sudo apt-get install libpangocairo-1.0-0
     # latest stable chrome
