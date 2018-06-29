@@ -45,7 +45,7 @@
     "karma-sinon-chai": "^0.2.0",
     "mocha": "~1.20.1",
     "phantomjs": "^1.9.7-9",
-    "protractor": "~1.0.0",
+    "protractor": "~5.3.2",
     "sinon-chai": "^2.6.0",
     "widget-tester": "git://github.com/Rise-Vision/widget-tester.git"
   }
