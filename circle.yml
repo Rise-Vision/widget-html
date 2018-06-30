@@ -11,8 +11,8 @@ dependencies:
     - if [ -z $(grep version package.json |grep -o '[0-9.]*') ]; then echo Version must be specified in package.json; exit 1; fi
     - if [[ ! -d $HOME/aws ]]; then curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && unzip awscli-bundle.zip && sudo ./awscli-bundle/install -i $HOME/aws; fi
     - cat /etc/lsb-release
-    - sudo apt-get -f install
-    - sudo apt-get install libcurl3 libnspr4-0d
+    - sudo apt-get update
+    - sudo apt-get install python-dev
     # latest stable chrome
     - curl -L -o google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - sudo dpkg -i google-chrome-stable.deb
