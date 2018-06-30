@@ -37,7 +37,7 @@
        */
     });
 
-    xit("Should correctly save settings", function (done) {
+    it("Should correctly save settings", function (done) {
       /* Using test input must be kept simple, no HTML tags. This is to avoid the test comparison never being equal
       due to the Ace Editor instance injecting ending HTML tags when it detects "</" being input.
        */
