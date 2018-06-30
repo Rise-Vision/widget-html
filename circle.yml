@@ -7,9 +7,6 @@ dependencies:
   cache_directories:
     - /home/ubuntu/aws
   pre:
-    - if [ -z "$BUCKET_NAME" ]; then echo Bucket name must be specified as an environment variable; exit 1; fi
-    - if [ -z $(grep version package.json |grep -o '[0-9.]*') ]; then echo Version must be specified in package.json; exit 1; fi
-    - if [[ ! -d $HOME/aws ]]; then curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && unzip awscli-bundle.zip && sudo ./awscli-bundle/install -i $HOME/aws; fi
     - cat /etc/lsb-release
     - sudo apt-get update
     - sudo apt-get install python-dev
@@ -19,6 +16,9 @@ dependencies:
     # make chrome lxc-friendly
     - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
     - rm google-chrome-stable.deb
+    - if [ -z "$BUCKET_NAME" ]; then echo Bucket name must be specified as an environment variable; exit 1; fi
+    - if [ -z $(grep version package.json |grep -o '[0-9.]*') ]; then echo Version must be specified in package.json; exit 1; fi
+    - if [[ ! -d $HOME/aws ]]; then curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && unzip awscli-bundle.zip && sudo ./awscli-bundle/install -i $HOME/aws; fi
     - npm install -g gulp
     - npm install -g casperjs
     - npm install -g bower
