@@ -22,6 +22,7 @@ dependencies:
     - npm install -g casperjs
     - npm install -g bower
   post:
+    - npm run update-webdriver
     - bower install
     - wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
     - nohup bash -c "java -jar selenium-server-standalone-2.44.0.jar &"
