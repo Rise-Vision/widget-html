@@ -13,9 +13,7 @@ dependencies:
     - cat /etc/lsb-release
     - sudo apt-get update
     - sudo apt-get -f install
-    - sudo apt-get install python-dev libatk-bridge2.0-0 libnss3
-    - sudo apt-get install libpango-1.0-0
-    - sudo apt-get install libpangocairo-1.0-0
+    - sudo apt-get install python-dev libatk-bridge2.0-0 libnss3 libcurl3 libnspr4-0d
     # latest stable chrome
     - curl -L -o google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - sudo dpkg -i google-chrome-stable.deb
