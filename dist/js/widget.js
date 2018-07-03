@@ -1,5 +1,7 @@
 /* global config: true */
 /* exported config */
+/* jshint latedef: false */
+
 if (typeof config === "undefined") {
   var config = {
     // variables go here
