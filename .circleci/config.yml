@@ -35,7 +35,7 @@ jobs:
       - run: nvm install 6.9.1 && nvm alias default 6.9.1
       - run: npm install -g gulp bower casperjs
       - run: npm install
-      - npm: run update-webdriver
+      - run: run update-webdriver
       - run: bower install
       - save_cache:
           key: node-cache-v3{{ checksum "package.json" }}
