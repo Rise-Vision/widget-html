@@ -79,8 +79,8 @@ jobs:
       # make chrome lxc-friendly
       - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
       # selenium server
-      - wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
-      - nohup bash -c "java -jar selenium-server-standalone-2.44.0.jar &"
+      - run: wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
+      - run: nohup bash -c "java -jar selenium-server-standalone-2.44.0.jar &"
       - run: nvm install 6.9.1 && nvm alias default 6.9.1
       - run: NODE_ENV=dev npm run test
 
@@ -119,7 +119,7 @@ jobs:
       - restore_cache:
           key: node-cache-v3{{ checksum "package.json" }}
       - restore_cache:
-          key: aws-cache
+          key: aws-cache2
       - run: echo Deploying version $(grep version package.json |grep -o '[0-9.]*') to $BUCKET_NAME-test
       - run: $awscli s3 ls s3://$BUCKET_NAME-test || ($awscli s3 mb s3://$BUCKET_NAME-test && $awscli s3api put-bucket-acl --bucket $BUCKET_NAME-test --grant-read 'uri="http://acs.amazonaws.com/groups/global/AllUsers"')
       - run: $awscli s3 sync ./dist s3://$BUCKET_NAME-test/$(grep version package.json |grep -o '[0-9.]*')/dist --delete --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
@@ -137,7 +137,7 @@ jobs:
       - restore_cache:
           key: node-cache-v3{{ checksum "package.json" }}
       - restore_cache:
-          key: aws-cache
+          key: aws-cache2
       - run: echo Deploying version $(grep version package.json |grep -o '[0-9.]*') to $BUCKET_NAME
       - run: $awscli s3 ls s3://$BUCKET_NAME || ($awscli s3 mb s3://$BUCKET_NAME && $awscli s3api put-bucket-acl --bucket $BUCKET_NAME --grant-read 'uri="http://acs.amazonaws.com/groups/global/AllUsers"')
       - run: $awscli s3 sync ./dist s3://$BUCKET_NAME/$(grep version package.json |grep -o '[0-9.]*')/dist --delete --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
