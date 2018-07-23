@@ -1,13 +1,13 @@
 /* global gadgets, RiseVision */
 
-(function (window, document, gadgets) {
+( function( window, document, gadgets ) {
   "use strict";
 
   var prefs = new gadgets.Prefs(),
-    id = prefs.getString("id");
+    id = prefs.getString( "id" );
 
   // Disable context menu (right click menu)
-  window.oncontextmenu = function () {
+  window.oncontextmenu = function() {
     return false;
   };
 
@@ -55,16 +55,16 @@
     RiseVision.EmbedHTML.stop();
   }
 
-  if (id && id !== "") {
-    gadgets.rpc.register("rscmd_play_" + id, play);
-    gadgets.rpc.register("rscmd_pause_" + id, pause);
-    gadgets.rpc.register("rscmd_stop_" + id, stop);
+  if ( id && id !== "" ) {
+    gadgets.rpc.register( "rscmd_play_" + id, play );
+    gadgets.rpc.register( "rscmd_pause_" + id, pause );
+    gadgets.rpc.register( "rscmd_stop_" + id, stop );
 
-    gadgets.rpc.register("rsparam_set_" + id, RiseVision.EmbedHTML.setParams);
+    gadgets.rpc.register( "rsparam_set_" + id, RiseVision.EmbedHTML.setParams );
     gadgets.rpc.register( "rsparam_set_" + id, configure );
     gadgets.rpc.call( "", "rsparam_get", null, id, [ "companyId", "displayId", "additionalParams" ] );
   }
 
-})(window, document, gadgets);
+} )( window, document, gadgets );
 
 
