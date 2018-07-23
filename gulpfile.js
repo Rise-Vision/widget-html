@@ -8,7 +8,7 @@
   var rimraf = require("gulp-rimraf");
   var concat = require("gulp-concat");
   var bump = require("gulp-bump");
-  var jshint = require("gulp-jshint");
+  var eslint = require("gulp-eslint");
   var minifyCSS = require("gulp-minify-css");
   var usemin = require("gulp-usemin");
   var uglify = require("gulp-uglify");
@@ -51,12 +51,12 @@
       .pipe(gulp.dest("./"));
   });
 
-  gulp.task("lint", function() {
+  gulp.task( "lint", function() {
     return gulp.src(appJSFiles)
-      .pipe(jshint())
-      .pipe(jshint.reporter("jshint-stylish"))
-      .pipe(jshint.reporter("fail"));
-  });
+      .pipe( eslint() )
+      .pipe( eslint.format() )
+      .pipe( eslint.failAfterError() );
+  } );
 
   gulp.task("html-templates", function() {
     return gulp.src("./src/settings/html-templates/*.html")
