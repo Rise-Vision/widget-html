@@ -16,6 +16,13 @@ RiseVision.EmbedHTML = (function (document, gadgets) {
     gadgets.rpc.call("", "rsevent_ready", null, _prefs.getString("id"), true, true, true, true, true);
   }
 
+  function _logConfiguration() {
+    _logEvent( {
+      event: "configuration",
+      event_details: _html ? _html : null
+    } );
+  }
+
   function _configureFrame() {
     var container = document.getElementById("html-container"),
       frame = document.getElementById("html-frame"),
@@ -55,6 +62,14 @@ RiseVision.EmbedHTML = (function (document, gadgets) {
     }
   }
 
+  function getTableName() {
+    return "html_events";
+  }
+
+  function _logEvent( params ) {
+    RiseVision.Common.LoggerUtils.logEvent( getTableName(), params );
+  }
+
   function _pause() {
     _removeHTML();
   }
@@ -69,24 +84,17 @@ RiseVision.EmbedHTML = (function (document, gadgets) {
     _removeHTML();
   }
 
-  function _setParams(names, values) {
-    var value;
-
+  function _setParams(value) {
     _prefs = new gadgets.Prefs();
 
-    if (Array.isArray(names) && names.length > 0 && names[0] === "additionalParams") {
-      if (Array.isArray(values) && values.length > 0) {
-        value = JSON.parse(values[0]);
+    _configureFrame();
 
-        _configureFrame();
-
-        if (value && value.hasOwnProperty("html")) {
-          _html = value.html;
-        }
-
-        _ready();
-      }
+    if (value && value.hasOwnProperty("html")) {
+      _html = value.html;
     }
+
+    _logConfiguration();
+    _ready();
   }
 
   return {
