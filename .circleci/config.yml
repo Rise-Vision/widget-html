@@ -31,14 +31,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node-cache-v3{{ checksum "package.json" }}
+          key: node-cache-{{ checksum "package.json" }}
       - run: nvm install 6.9.1 && nvm alias default 6.9.1
       - run: npm install -g gulp bower casperjs
       - run: npm install
       - run: npm run update-webdriver
       - run: bower install
       - save_cache:
-          key: node-cache-v3{{ checksum "package.json" }}
+          key: node-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - persist_to_workspace:
@@ -72,7 +72,7 @@ jobs:
       - attach_workspace:
           at: .
       - restore_cache:
-          key: node-cache-v3{{ checksum "package.json" }}
+          key: node-cache-{{ checksum "package.json" }}
       # latest stable chrome
       - run: curl -L -o google-chrome-stable.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - run: sudo dpkg -i google-chrome-stable.deb
@@ -93,7 +93,7 @@ jobs:
       - attach_workspace:
           at: .
       - restore_cache:
-          key: node-cache-v3{{ checksum "package.json" }}
+          key: node-cache-{{ checksum "package.json" }}
       - run: nvm install 6.9.1 && nvm alias default 6.9.1
       - run: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
@@ -117,7 +117,7 @@ jobs:
       - attach_workspace:
           at: .
       - restore_cache:
-          key: node-cache-v3{{ checksum "package.json" }}
+          key: node-cache-{{ checksum "package.json" }}
       - restore_cache:
           key: aws-cache2
       - run: echo Deploying version $(grep version package.json |grep -o '[0-9.]*') to $BUCKET_NAME-test
@@ -135,7 +135,7 @@ jobs:
       - attach_workspace:
           at: .
       - restore_cache:
-          key: node-cache-v3{{ checksum "package.json" }}
+          key: node-cache-{{ checksum "package.json" }}
       - restore_cache:
           key: aws-cache2
       - run: echo Deploying version $(grep version package.json |grep -o '[0-9.]*') to $BUCKET_NAME
