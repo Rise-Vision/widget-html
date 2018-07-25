@@ -8,7 +8,7 @@
   var rimraf = require("gulp-rimraf");
   var concat = require("gulp-concat");
   var bump = require("gulp-bump");
-  var jshint = require("gulp-jshint");
+  var eslint = require("gulp-eslint");
   var minifyCSS = require("gulp-minify-css");
   var usemin = require("gulp-usemin");
   var uglify = require("gulp-uglify");
@@ -51,12 +51,12 @@
       .pipe(gulp.dest("./"));
   });
 
-  gulp.task("lint", function() {
+  gulp.task( "lint", function() {
     return gulp.src(appJSFiles)
-      .pipe(jshint())
-      .pipe(jshint.reporter("jshint-stylish"))
-      .pipe(jshint.reporter("fail"));
-  });
+      .pipe( eslint() )
+      .pipe( eslint.format() )
+      .pipe( eslint.failAfterError() );
+  } );
 
   gulp.task("html-templates", function() {
     return gulp.src("./src/settings/html-templates/*.html")
@@ -112,7 +112,8 @@
   gulp.task("html:e2e",
     factory.htmlE2E({
       files: ["./src/settings.html", "./src/widget.html"],
-      e2eMockData: "../test/mock-data.js"
+      e2eMockData: "../test/mock-data.js",
+      mockLogger: "../node_modules/widget-tester/mocks/logger-mock.js"
     }));
 
   gulp.task("test:unit:settings", factory.testUnitAngular(
@@ -144,7 +145,9 @@
     {testFiles: [
       "src/components/jquery/dist/jquery.js",
       "node_modules/widget-tester/mocks/gadget-mocks.js",
+      "node_modules/widget-tester/mocks/logger-mock.js",
       "test/mock-data.js",
+      "src/components/widget-common/dist/config.js",
       "src/config/test.js",
       "src/widget/embedHTML.js",
       "src/widget/main.js",
