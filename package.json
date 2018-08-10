@@ -51,6 +51,7 @@
     "phantomjs": "^1.9.7-9",
     "protractor": "~5.3.2",
     "sinon-chai": "^2.6.0",
+    "tough-cookie": "^2.3.3",
     "uglify-js": "^2.6.0",
     "widget-tester": "git://github.com/Rise-Vision/widget-tester.git"
   }
