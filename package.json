@@ -38,6 +38,7 @@
     "gulp-uglify": "^0.3.1",
     "gulp-util": "~2.2.17",
     "gulp-watch": "^0.6.8",
+    "hawk": "^7.0.10",
     "hoek": "5.0.3",
     "lodash": "^4.17.5",
     "karma": "^3.0.0",
