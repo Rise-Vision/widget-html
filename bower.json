@@ -51,6 +51,7 @@
     "bootstrap-form-components": "8c6281fccce4d704ca980ba37adeb48b200ce5f3",
     "bootstrap-sass-official": "3.2.0",
     "component-storage-selector": "4a525a6fe343d8657789c9934c135f137b3a86f3",
+    "font-awesome": "~4.7.0",
     "rv-common-i18n": "96a3a78b463cc14d647aadf401f490b44f450f4d",
     "rv-common-style": "1.1.4",
     "widget-settings-ui-components": "1874acc4f959cf98c27fbd57977db6b9562b27c3",
