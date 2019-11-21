@@ -25,13 +25,13 @@
     "reports"
   ],
   "devDependencies": {
-    "angular-mocks": "1.2.18",
+    "angular-mocks": "~1.7.0",
     "q": "1.0.1",
     "sinon": "~1.10.2"
   },
   "dependencies": {
-    "angular": "1.2.18",
-    "angular-route": "1.2.18",
+    "angular": "~1.7.0",
+    "angular-route": "~1.7.0",
     "angular-translate": "2.4.2",
     "angular-translate-loader-static-files": "2.4.2",
     "angular-ui-ace": "0.1.1",
@@ -40,12 +40,12 @@
     "widget-settings-ui-core": "https://github.com/Rise-Vision/widget-settings-ui-core.git#0d3bcba46520ed772216fb146cbc6d2e06a4b549"
   },
   "resolutions": {
-    "jquery": "1.11.0",
-    "angular": "1.2.18",
+    "jquery": "~3.3.1",
+    "angular": "~1.7.0",
     "angular-bootstrap-slider": "0.0.6",
     "angular-bootstrap": "0.11.0",
-    "angular-mocks": "1.2.18",
-    "angular-route": "1.2.18",
+    "angular-mocks": "~1.7.0",
+    "angular-route": "~1.7.0",
     "angular-translate": "2.4.2",
     "angular-translate-loader-static-files": "2.4.2",
     "bootstrap-form-components": "8c6281fccce4d704ca980ba37adeb48b200ce5f3",
