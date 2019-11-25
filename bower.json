@@ -42,7 +42,6 @@
   },
   "resolutions": {
     "angular": "~1.7.0",
-    "angular-mocks": "~1.7.0",
     "angular-translate": "2.4.2",
     "angular-translate-loader-static-files": "2.4.2",
     "font-awesome": "~4.7.0",
