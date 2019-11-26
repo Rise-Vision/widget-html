@@ -35,26 +35,18 @@
     "angular-translate": "2.4.2",
     "angular-translate-loader-static-files": "2.4.2",
     "angular-ui-ace": "0.1.1",
+    "jquery": "~3.2.1",
     "widget-common": "https://github.com/Rise-Vision/widget-common.git#v3.7.0",
     "widget-settings-ui-components": "https://github.com/Rise-Vision/widget-settings-ui-components.git#1874acc4f959cf98c27fbd57977db6b9562b27c3",
     "widget-settings-ui-core": "https://github.com/Rise-Vision/widget-settings-ui-core.git#0d3bcba46520ed772216fb146cbc6d2e06a4b549"
   },
   "resolutions": {
-    "jquery": "1.11.0",
     "angular": "1.2.18",
-    "angular-bootstrap-slider": "0.0.6",
     "angular-bootstrap": "0.11.0",
-    "angular-mocks": "1.2.18",
-    "angular-route": "1.2.18",
     "angular-translate": "2.4.2",
     "angular-translate-loader-static-files": "2.4.2",
-    "bootstrap-form-components": "8c6281fccce4d704ca980ba37adeb48b200ce5f3",
-    "bootstrap-sass-official": "3.2.0",
-    "component-storage-selector": "4a525a6fe343d8657789c9934c135f137b3a86f3",
     "font-awesome": "~4.7.0",
-    "rv-common-i18n": "96a3a78b463cc14d647aadf401f490b44f450f4d",
-    "rv-common-style": "1.1.4",
-    "widget-settings-ui-components": "1874acc4f959cf98c27fbd57977db6b9562b27c3",
-    "widget-settings-ui-core": "0d3bcba46520ed772216fb146cbc6d2e06a4b549"
+    "jquery": "~3.2.1",
+    "widget-settings-ui-components": "1874acc4f959cf98c27fbd57977db6b9562b27c3"
   }
 }
