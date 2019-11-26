@@ -36,7 +36,7 @@
     "angular-translate-loader-static-files": "2.4.2",
     "angular-ui-ace": "~0.2.3",
     "common-header": "https://github.com/Rise-Vision/common-header.git#v4.0.0",
-    "jquery": "~3.3.1",
+    "jquery": "~3.2.1",
     "widget-common": "https://github.com/Rise-Vision/widget-common.git#v3.7.0",
     "widget-settings-ui-components": "https://github.com/Rise-Vision/widget-settings-ui-components.git#3.5.0",
     "widget-settings-ui-core": "https://github.com/Rise-Vision/widget-settings-ui-core.git#0.4.3"
@@ -46,6 +46,6 @@
     "angular-translate": "2.4.2",
     "angular-translate-loader-static-files": "2.4.2",
     "font-awesome": "~4.7.0",
-    "jquery": "~3.3.1"
+    "jquery": "~3.2.1"
   }
 }
