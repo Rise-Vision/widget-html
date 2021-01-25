@@ -69,12 +69,12 @@ RiseVision.EmbedHTML = ( function( document, gadgets ) {
     return "html_events";
   }
 
-  function _logEvent( params, endpointLoggingFields) {
+  function _logEvent( params, endpointLoggingFields ) {
     if ( endpointLoggingFields ) {
       endpointLoggingFields.eventApp = "widget-html";
     }
 
-    RiseVision.Common.LoggerUtils.logEvent( getTableName(), params, endpointLoggingFields);
+    RiseVision.Common.LoggerUtils.logEvent( getTableName(), params, endpointLoggingFields );
   }
 
   function _pause() {
