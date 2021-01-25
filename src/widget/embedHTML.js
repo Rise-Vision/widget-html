@@ -18,10 +18,12 @@ RiseVision.EmbedHTML = ( function( document, gadgets ) {
   }
 
   function _logConfiguration() {
-    _logEvent( {
-      event: "configuration",
-      event_details: _html ? _html : null
-    } );
+    var configParams = {
+      "event": "configuration",
+      "event_details": _html ? _html : null
+    };
+
+    _logEvent( configParams, { severity: "info", debugInfo: JSON.stringify( configParams ) } );
   }
 
   function _configureFrame() {
@@ -67,8 +69,12 @@ RiseVision.EmbedHTML = ( function( document, gadgets ) {
     return "html_events";
   }
 
-  function _logEvent( params ) {
-    RiseVision.Common.LoggerUtils.logEvent( getTableName(), params );
+  function _logEvent( params, endpointLoggingFields ) {
+    if ( endpointLoggingFields ) {
+      endpointLoggingFields.eventApp = "widget-html";
+    }
+
+    RiseVision.Common.LoggerUtils.logEvent( getTableName(), params, endpointLoggingFields );
   }
 
   function _pause() {
