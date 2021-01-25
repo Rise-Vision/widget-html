@@ -47,7 +47,7 @@
     "webfontloader": "1.6.16",
     "hawk": "^7.0.10",
     "hoek": "5.0.3",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "karma": "^3.0.0",
     "phantomjs": "^1.9.16",
     "promisify-node": "^0.5.0",
