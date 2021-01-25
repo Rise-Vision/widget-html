@@ -7,8 +7,10 @@
   var gutil = require("gulp-util");
   var rimraf = require("gulp-rimraf");
   var concat = require("gulp-concat");
+  var bower = require("gulp-bower");
   var bump = require("gulp-bump");
   var eslint = require("gulp-eslint");
+  var file = require("gulp-file");
   var minifyCSS = require("gulp-minify-css");
   var usemin = require("gulp-usemin");
   var uglify = require("gulp-uglify");
@@ -58,6 +60,15 @@
       .pipe( eslint.failAfterError() );
   } );
 
+  gulp.task("version", function () {
+    var pkg = require("./package.json"),
+      str = '/* exported version */\n' +
+        'var version = "' + pkg.version + '";';
+
+    return file("version.js", str, {src: true})
+      .pipe(gulp.dest("./src/config/"));
+  });
+
   gulp.task("html-templates", function() {
     return gulp.src("./src/settings/html-templates/*.html")
       .pipe(html2js({
@@ -105,8 +116,15 @@
       .pipe(gulp.dest("dist/locales"));
   });
 
+  gulp.task("bower-update", function (cb) {
+    return bower({ cmd: "update"}).on("error", function(err) {
+      console.log(err);
+      cb();
+    });
+  });
+
   gulp.task("build", function (cb) {
-    runSequence(["clean", "config"], ["source", "fonts", "images", "i18n"], ["unminify"], cb);
+    runSequence(["clean", "config", "bower-update", "version"], ["source", "fonts", "images", "i18n"], ["unminify"], cb);
   });
 
   gulp.task("html:e2e",
@@ -149,6 +167,7 @@
       "test/mock-data.js",
       "src/components/widget-common/dist/config.js",
       "src/config/test.js",
+      "src/config/version.js",
       "src/widget/embedHTML.js",
       "src/widget/main.js",
       "test/unit/widget/**/*spec.js"]}
@@ -177,7 +196,7 @@
   });
 
   gulp.task("test", function(cb) {
-    runSequence("test:unit", "test:e2e", "test:metrics", cb);
+    runSequence("version", "test:unit", "test:e2e", "test:metrics", cb);
   });
 
   gulp.task("default", function(cb) {
